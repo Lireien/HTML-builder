@@ -13,17 +13,12 @@ console.log('You can type your text here:');
 
 //fill created text file with input value
 rl.on('line', (input) => {
-  input === 'exit' ? endTypingHandler() : stream.write();
+  input === 'exit' ? endTypingHandler() : stream.write(input);
 });
 
 //quit of session
 rl.on('SIGINT', () => {
-  rl.question(
-    'Are you sure you want to exit? ',
-    (answer) => {
-      if (answer.match(/^y(es)?$/i)) endTypingHandler();
-    }
-  );
+  endTypingHandler();
 });
 
 //create function with repeating code accroding to DRY principle
@@ -33,3 +28,9 @@ function endTypingHandler() {
   console.log('Have a nice day');
   process.exit();
 }
+
+
+
+
+
+
