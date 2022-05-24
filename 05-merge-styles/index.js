@@ -13,7 +13,7 @@ fs.readdir(cssStylesFolder, (err, data) => {
   for (let i = 0; i < data.length; i++) {
     //separate extension from file and...
     let extension = path.extname(data[i]).split('.').pop();
-    //check it for css matching and put it to putput file
+    //check it for css matching and put it to output file
     if (extension === 'css') {
       let input = fs.createReadStream(path.join(cssStylesFolder, data[i]));
       input.on('data', data => {
